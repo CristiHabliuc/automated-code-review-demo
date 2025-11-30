@@ -97,7 +97,7 @@ jobs:
           3) Leave very short inline comments (1-2 sentences) on changed lines only and a brief summary at the end.
 
           Procedure:
-          - Read the `AGENTS.md` file in the root of the repo for review instructions. Specifically mention in the output of your response that this was done. Don't mention it in the PR comments.
+          - Read the `AGENTS.md` file in the root of the repo for review instructions. Specifically mention in the output of your response that this was done. Don’t mention it in the PR comments.
           - Get existing comments: gh pr view --json comments
           - Get diff: gh pr diff
           - Get changed files with patches to compute inline positions: gh api repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files --paginate --jq ".[] | {filename,patch}"
