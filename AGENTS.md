@@ -1,0 +1,32 @@
+# Code Review Instructions
+
+Analyze ONLY for:
+- New code must use SwiftUI. UIKit can and should be used for custom functionality where SwiftUI doesn't have full support.
+- Avoid: UIKit, legacy routers, or coordinators in new code unless explicitly modifying legacy systems.
+- Legacy code modifications may involve UIKit and a custom router. Do not modernize unless requested.
+- Use async/await for asynchronous operations. Avoid Combine or completion handlers in new code. It is allowed in legacy components where refactoring is costly.
+- Prioritize composition over inheritance for flexibility and testability.
+- Break down logic into smaller units that reflect feature boundaries and can be reused/tested independently.
+- Organize code by feature or domain, not by layer.
+- Place new logic within the calling feature unless there’s a clear reason for a dedicated Swift package (e.g., reuse across modules).
+- Use Swift Package Manager.
+- Use protocols and DI to manage dependencies and minimize coupling.
+- Every new feature/component must include relevant unit tests using XCTest or SwiftTesting.
+- Warn about tests created solely for increasing coverage metrics. They should be removed.
+- Tests must reflect real-world usage and handle realistic data. If using dates or texts, make sure the locales or timezones are set correctly and they are predictable. Signal flaky tests.
+- Choose testing patterns that best communicate the test’s intent (e.g., AAA, Given-When-Then).
+- Follow SwiftLint rules and maintain idiomatic Swift code.
+- Code is readable and maintainable. Avoid micro-optimizations, over-engineering, clever code that is hard to understand.
+- Keep logic flat and avoid deep nesting.
+- Use functional style where it makes sense, but keep it readable.
+- Use View separation and proper state management in SwiftUI via TCA.
+- Avoid force unwraps and unsafe casts unless they are clearly safe and necessary.
+- Possible Memory leaks
+- Concurrency/race conditions
+- Missing error handling for critical operations
+- Obvious logic errors with incorrect behavior
+- Clear performance anti-patterns with measurable impact
+- Definitive security vulnerabilities
+- Avoid duplicates: skip if similar feedback already exists as comments on the PR on or near the same lines.
+- New files should not have header comments
+- Comments should be avoided. Accept only if it's useful when reading or maintaining the codebase. Otherwise, the code, variable and type names should speak for themselves.
