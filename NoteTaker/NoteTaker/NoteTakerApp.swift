@@ -4,7 +4,7 @@ import SwiftUI
 struct NoteTakerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NoteListView(notes: [])
         }
     }
 }
