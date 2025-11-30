@@ -126,11 +126,11 @@ jobs:
 
           Submission:
           - BEFORE submitting any comments, check if this run is still active:
-            - Get the latest run for this workflow and PR: gh api repos/${{ github.repository }}/actions/workflows/cursor-code-review.yml/runs --jq ".workflow_runs | map(select(.event == \"pull_request\" and .pull_requests[0].number == ${{ github.event.pull_request.number }})) | sort_by(.created_at) | reverse | .[0].id"
+            - Get the latest run for this workflow and PR: gh api repos/${{ github.repository }}/actions/workflows/codex-code-review.yml/runs --jq ".workflow_runs | map(select(.event == \"pull_request\" and .pull_requests[0].number == ${{ github.event.pull_request.number }})) | sort_by(.created_at) | reverse | .[0].id"
             - Compare with current run ID: ${{ github.run_id }}
             - If the latest run ID is different from the current run ID, this run has been superseded. Exit immediately with: echo "⚠️ Run superseded, exiting without posting comments" && exit 0
           - If there are NO issues to report and an existing top-level comment indicating "no issues" already exists (e.g., "✅ no issues", "No issues found", "LGTM"), do NOT submit another comment. Skip submission to avoid redundancy.
-          - If there are NO issues to report and NO prior "no issues" comment exists, submit one brief summary comment noting no issues. Prefix with: **Cursor Review:** 
+          - If there are NO issues to report and NO prior "no issues" comment exists, submit one brief summary comment noting no issues. Prefix with: **Codex Review:** 
           - If there ARE issues to report and a prior "no issues" comment exists, ensure that prior comment is deleted/minimized/marked as superseded before submitting the new review.
           - If there ARE issues to report, submit ONE review containing ONLY inline comments plus an optional concise summary body. Use the GitHub Reviews API to ensure comments are inline:
             - Build a JSON array of comments like: [{ "path": "<file>", "position": <diff_position>, "body": "..." }] (escape the double quotes)
