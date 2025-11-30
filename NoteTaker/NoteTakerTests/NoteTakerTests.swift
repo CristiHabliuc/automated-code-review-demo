@@ -1,10 +1,3 @@
-//
-//  NoteTakerTests.swift
-//  NoteTakerTests
-//
-//  Created by Cristi Habliuc on 30/11/25.
-//
-
 import Testing
 @testable import NoteTaker
 

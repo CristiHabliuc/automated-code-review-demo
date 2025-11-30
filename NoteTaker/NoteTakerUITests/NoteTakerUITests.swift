@@ -1,10 +1,3 @@
-//
-//  NoteTakerUITests.swift
-//  NoteTakerUITests
-//
-//  Created by Cristi Habliuc on 30/11/25.
-//
-
 import XCTest
 
 final class NoteTakerUITests: XCTestCase {
