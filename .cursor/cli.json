@@ -1,0 +1,17 @@
+{
+    "permissions": {
+        "allow": [
+            "Shell(git pull)",
+            "Shell(git checkout)",
+            "Shell(gh api)",
+            "Shell(gh pr view)",
+            "Shell(gh pr diff)"
+        ],
+        "deny": [
+            "Shell(git push)",
+            "Shell(gh pr create)",
+            "Shell(gh pr review)",
+            "Write(**)"
+        ]
+    }
+}
